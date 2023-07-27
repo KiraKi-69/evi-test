@@ -1,0 +1,72 @@
+datasets:
+  credit_history_decision_tree:
+    column_mapping:
+      categorical_features:
+        - person_home_ownership
+        - loan_intent
+        - city
+        - state
+        - location_type
+      numerical_features:
+        - person_age
+        - person_income
+        - person_emp_length
+        - loan_amnt
+        - loan_int_rate
+        - tax_returns_filed
+        - population total_wages
+        - credit_card_due
+        - mortgage_due
+        - student_loan_due
+        - vehicle_loan_due
+        - hard_pulls missed_payments_2y
+        - missed_payments_1y
+        - missed_payments_6m
+        - bankruptcies
+      target: loan_status
+    data_format:
+      header: true
+      separator: ','
+    monitors:
+      - data_drift
+      - classification_performance
+      - num_target_drift
+  credit_history_gradient_boosting:
+    column_mapping:
+      categorical_features:
+        - person_home_ownership
+        - loan_intent
+        - city
+        - state
+        - location_type
+      numerical_features:
+        - person_age
+        - person_income
+        - person_emp_length
+        - loan_amnt
+        - loan_int_rate
+        - tax_returns_filed
+        - population total_wages
+        - credit_card_due
+        - mortgage_due
+        - student_loan_due
+        - vehicle_loan_due
+        - hard_pulls missed_payments_2y
+        - missed_payments_1y
+        - missed_payments_6m
+        - bankruptcies
+      target: loan_status
+    data_format:
+      header: true
+      separator: ','
+    monitors:
+      - data_drift
+      - classification_performance
+      - num_target_drift
+service:
+  calculation_period_sec: 2
+  min_reference_size: 30
+  moving_reference: false
+  datasets_path: datasets
+  use_reference: true
+  window_size: 5
